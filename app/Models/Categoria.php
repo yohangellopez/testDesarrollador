@@ -15,6 +15,7 @@ class Categoria extends Model
         'nombre',
     ];
 
+    //Relacion uno a muchos
     public function productos(){
         return $this->belongsToMany('App\Models\Producto');
     }
