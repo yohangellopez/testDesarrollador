@@ -16,8 +16,13 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $table='usuarios';
+
     protected $fillable = [
-        'name',
+        'nombre',
+        'apellido',
+        'sexo',
         'email',
         'password',
     ];
@@ -40,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pedidos(){
+        return $this->hasMany('App\Models\Pedido');
+    }
 }
