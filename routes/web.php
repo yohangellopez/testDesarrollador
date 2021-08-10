@@ -19,4 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//Api Datos de Publicaciones de un usuario
 Route::get('/api', [UsuarioController::class, 'index'])->name('api.index');
