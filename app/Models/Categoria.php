@@ -15,8 +15,9 @@ class Categoria extends Model
         'nombre',
     ];
 
-    //Relacion uno a muchos
+    //Relacion uno a muchos con pivote
     public function productos(){
-        return $this->belongsToMany('App\Models\Producto');
+        return $this->belongsToMany('App\Models\Producto','productos_categorias')
+        ->withPivot('producto_id','nombre');
     }
 }
