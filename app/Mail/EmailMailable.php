@@ -13,7 +13,7 @@ class EmailMailable extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     public $usuario;
-
+    public $subject='Se ha registrado correctamente';
     /**
      * Create a new message instance.
      *
@@ -21,7 +21,7 @@ class EmailMailable extends Mailable implements ShouldQueue
      */
     public function __construct(User $usuario)
     {
-        $this->usuario = $usuario;
+        $this->usuario= $usuario;
     }
 
     /**
@@ -31,6 +31,6 @@ class EmailMailable extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Se ha registrado correctamente');
+        return $this->view('mail');
     }
 }
